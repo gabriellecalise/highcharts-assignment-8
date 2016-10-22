@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title> Crime at public Florida universities </title>
+	<link href="styles/chart.css" rel="stylesheet">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"> </script>
+  <!-- add Highcharts in the head of your page -->
+  <script src="js/highcharts.js"></script>
+  <script src="js/modules/heatmap.js"></script>
+  <script src="js/modules/treemap.js"></script>
+  <script type="text/javascript" src="js/themes/sand-signika.js"></script>
+
+</head>
+
+
+<body>
+<h1> Comparing crime at public Florida universities </h1>
+
+<div id="byline">
+By Gabrielle Calise
+</div>
+
+<article>
+
+<div id="container"></div>
+
+<div class="sources"> <p> Source: <a href="https://ucr.fbi.gov/crime-in-the-u.s/2015/crime-in-the-u.s.-2015/tables/table-9/table-9-state-pieces/table_9_offenses_known_to_law_enforcement_florida_by_university_and_college_2015.xls"> FBI UCR Data: Crime in the U.S. 2015</a> "Offenses Known to Law Enforcement by University and College, 2015." Table 9 - Florida.
+</p> </div>
+
+<div id="container2"></div>
+
+<div class="sources"><p> Source: <a href="https://ucr.fbi.gov/crime-in-the-u.s/2015/crime-in-the-u.s.-2015/tables/table-9/table-9-state-pieces/table_9_offenses_known_to_law_enforcement_florida_by_university_and_college_2015.xls"> FBI UCR Data: Crime in the U.S. 2015</a> "Offenses Known to Law Enforcement by University and College, 2015." Table 9 - Florida.
+</p></div>
+
+<script>
+$(function() {
+  $('#container').highcharts({
+    chart: {
+      type: 'bar'
+    },
+    title: {
+      text: 'Types of crime at Florida universities during 2015'
+    },
+    xAxis: {
+      categories: ['Florida A&M University', 'Florida Atlantic  	University', 'Florida Gulf Coast University', 'Florida International University', 'Florida SouthWestern State College', 'Florida State University', 'Pensacola State College', 'Santa Fe College', 'Tallahassee Community College', 'University of Central Florida', 'University of Florida', 'University of North Florida', 'USF St.Petersburg', 'USF Tampa', 'University of West Florida']
+    },
+    yAxis: {
+      min: 0,
+      max: 20,
+      title: {
+        text: 'Crimes per 1000 students'
+      }
+    },
+    legend: {
+      reversed: true
+    },
+    plotOptions: {
+      series: {
+        stacking: 'normal'
+      }
+    },
+    series: [{
+      name: 'Violent Crime',
+      data: [0.68, 0.10, 0.62, 0.32, 0.32, 0.49, 0.48, null, 0.23, 0.33, 0.30, 0.19, 0.22, 0.21, 0.63]
+    }, {
+      name: 'Property Crime',
+      data: [18.75, 6.11, 4.91, 7.68, 1.30, 9.41, 3.30, 1.73, 5.75, 4.87, 9.64, 6.94, 6.46, 12.23, 4.68]
+    }]
+  });
+});
+</script>
+
+<script>
+$(function() {
+  $('#container2').highcharts({
+    colorAxis: {
+      minColor: '#FFFFFF',
+      maxColor: Highcharts.getOptions().colors[0]
+    },
+    series: [{
+      type: 'treemap',
+      layoutAlgorithm: 'squarified',
+      data: [{
+        name: 'Florida A&M University',
+        value: 10241,
+        colorValue: 199
+      }, {
+        name: 'Florida Atlantic University',
+        value: 30297,
+        colorValue: 188
+      }, {
+        name: 'Florida Gulf Coast University',
+        value: 14473,
+        colorValue: 80
+      }, {
+        name: 'Florida International University',
+        value: 49610,
+        colorValue: 397
+      }, {
+        name: 'Florida SouthWestern State College',
+        value: 15389,
+        colorValue: 24
+      }, {
+        name: 'Florida State University',
+        value: 41226,
+        colorValue: 408
+      }, {
+        name: 'Pensacola State College',
+        value: 10317,
+        colorValue: 39
+      }, {
+        name: 'Santa Fe College',
+        value: 15055,
+        colorValue: 26
+      }, {
+        name: 'Tallahassee Community College',
+        value: 13049,
+        colorValue: 78
+      }, {
+        name: 'University of Central Florida',
+        value: 60767,
+        colorValue: 316
+      }, {
+        name: 'University of Florida',
+        value: 49459,
+        colorValue: 492
+      }, {
+        name: 'University of North Florida',
+        value: 15984,
+        colorValue: 114
+      }, {
+        name: 'USF St. Pete',
+        value: 4491,
+        colorValue: 30
+      },{
+        name: 'USF Tampa',
+        value: 41938,
+        colorValue: 522
+      },{
+        name: 'University of West Florida',
+        value: 12602,
+        colorValue: 67
+      }]
+    }],
+    title: {
+      text: 'University enrollment and crime in 2015'
+    }
+  });
+});
+
+</script>
+
+
+
+<p> These graph tell two different stories. The first shows the frequency of property and violent crimes at each public university in Florida. The second shows how the different schools compare to each other in terms of student population and the number of crimes. The bar graph at the top of the page compares two types of crime by displaying the number of crimes per 1,000 students at each institution. Violent crime includes murder, nonnegligent manslaughter, rape, robbery and aggravated assault. Property crime includes burglary, larceny-theft, motor vehicle theft and arson. In the next graphic, the blocks on a tree map represent each university, with size corresponding to the number of students enrolled at the school. The tree map is color-coded based on the total number of crimes. According to the legend at the bottom of the map, white represents fewer crimes and bright red represents more crime.
+</p>
+
+<p> By displaying the information in two different ways, it is easier understand the data in context. For example, Florida A &amp;	M University is on the smaller side when its student population is compared to the other schools in Florida. However, the bar graph shows that this university has the highest number of crimes per 1,000 students. 
+</p>
+
+<p> Both charts were complied using information from the FBI's Uniform Crime Reporting (UCR) data. The enrollment information was provided to the FBI by the Department of Education and includes both full-time and part-time students. The chart shows all schools listed on the FBI's database, except for New College of Florida, which had enrollment of less than 1,000, and  Florida Polytechnic University, which did not have student enrollment listed.</p>
+
+</article>
+
+
+</body>
+</html>
